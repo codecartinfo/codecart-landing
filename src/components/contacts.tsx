@@ -1,16 +1,45 @@
 "use client";
 
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Mail, Phone, MapPin, Send, MessageCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Send, MessageCircle, CheckCircle2, Loader2 } from "lucide-react";
 import type { Dictionary } from "@/lib/i18n";
 
 const PHONE = "+48452119082";
 const PHONE_DISPLAY = "+48 452 119 082";
 
 export function Contacts({ dict }: { dict: Dictionary }) {
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus("loading");
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.get("name"),
+          email: data.get("email"),
+          message: data.get("message"),
+        }),
+      });
+
+      if (!res.ok) throw new Error();
+      setStatus("success");
+      form.reset();
+    } catch {
+      setStatus("error");
+    }
+  }
+
   return (
     <section id="contacts" className="py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -118,43 +147,76 @@ export function Contacts({ dict }: { dict: Dictionary }) {
             <h3 className="mb-6 text-lg font-semibold">
               {dict.contacts.form.title}
             </h3>
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-              }}
-              className="space-y-5"
-            >
-              <div className="space-y-2">
-                <Label htmlFor="name">{dict.contacts.form.name}</Label>
-                <Input
-                  id="name"
-                  placeholder={dict.contacts.form.namePlaceholder}
-                  className="bg-background/50"
-                />
+            {status === "success" ? (
+              <div className="flex flex-col items-center justify-center gap-3 py-8 text-center">
+                <CheckCircle2 className="h-10 w-10 text-green-500" />
+                <p className="font-semibold">
+                  {dict.contacts.form.successTitle}
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  {dict.contacts.form.successDesc}
+                </p>
+                <Button
+                  variant="outline"
+                  className="mt-2"
+                  onClick={() => setStatus("idle")}
+                >
+                  {dict.contacts.form.sendAnother}
+                </Button>
               </div>
-              <div className="space-y-2">
-                <Label htmlFor="email">{dict.contacts.form.email}</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder={dict.contacts.form.emailPlaceholder}
-                  className="bg-background/50"
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="message">{dict.contacts.form.message}</Label>
-                <Textarea
-                  id="message"
-                  placeholder={dict.contacts.form.messagePlaceholder}
-                  rows={4}
-                  className="bg-background/50 resize-none"
-                />
-              </div>
-              <Button type="submit" className="w-full gap-2">
-                <Send className="h-4 w-4" />
-                {dict.contacts.form.submit}
-              </Button>
-            </form>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div className="space-y-2">
+                  <Label htmlFor="name">{dict.contacts.form.name}</Label>
+                  <Input
+                    id="name"
+                    name="name"
+                    required
+                    placeholder={dict.contacts.form.namePlaceholder}
+                    className="bg-background/50"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="email">{dict.contacts.form.email}</Label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    required
+                    placeholder={dict.contacts.form.emailPlaceholder}
+                    className="bg-background/50"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="message">{dict.contacts.form.message}</Label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    required
+                    placeholder={dict.contacts.form.messagePlaceholder}
+                    rows={4}
+                    className="bg-background/50 resize-none"
+                  />
+                </div>
+                {status === "error" && (
+                  <p className="text-sm text-red-500">
+                    {dict.contacts.form.error}
+                  </p>
+                )}
+                <Button
+                  type="submit"
+                  className="w-full gap-2"
+                  disabled={status === "loading"}
+                >
+                  {status === "loading" ? (
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                  ) : (
+                    <Send className="h-4 w-4" />
+                  )}
+                  {dict.contacts.form.submit}
+                </Button>
+              </form>
+            )}
           </div>
         </div>
       </div>

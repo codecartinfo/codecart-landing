@@ -88,7 +88,11 @@
       "emailPlaceholder": "email@example.com",
       "message": "Повідомлення",
       "messagePlaceholder": "Розкажіть про ваш проєкт...",
-      "submit": "Надіслати"
+      "submit": "Надіслати",
+      "successTitle": "Повідомлення надіслано!",
+      "successDesc": "Ми зв'яжемося з вами найближчим часом.",
+      "sendAnother": "Надіслати ще",
+      "error": "Не вдалося надіслати повідомлення. Спробуйте ще раз."
     },
     "tbd": "Буде додано",
     "phoneNumber": "+48 452 119 082"

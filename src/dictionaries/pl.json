@@ -88,7 +88,11 @@
       "emailPlaceholder": "email@example.com",
       "message": "Wiadomość",
       "messagePlaceholder": "Opowiedz o swoim projekcie...",
-      "submit": "Wyślij"
+      "submit": "Wyślij",
+      "successTitle": "Wiadomość wysłana!",
+      "successDesc": "Skontaktujemy się z Tobą wkrótce.",
+      "sendAnother": "Wyślij kolejną",
+      "error": "Nie udało się wysłać wiadomości. Spróbuj ponownie."
     },
     "tbd": "Zostanie dodany",
     "phoneNumber": "+48 452 119 082"
