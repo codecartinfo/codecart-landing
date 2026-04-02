@@ -1,0 +1,99 @@
+{
+  "meta": {
+    "title": "Codecart — Rozwiązania IT dla biznesu",
+    "description": "Tworzenie stron internetowych, aplikacji webowych, systemów CRM/ERP. Konsulting IT, administracja serwerów i infrastruktura chmurowa. Warszawa, Polska."
+  },
+  "nav": {
+    "services": "Usługi",
+    "about": "O firmie",
+    "howWeWork": "Jak pracujemy",
+    "contacts": "Kontakt",
+    "cta": "Skontaktuj się"
+  },
+  "hero": {
+    "badge": "Rozwiązania IT dla biznesu w Polsce i Europie",
+    "title1": "Tworzymy,",
+    "title2": "obsługujemy,",
+    "title3": "automatyzujemy",
+    "description": "Tworzymy strony internetowe, aplikacje webowe i systemy CRM. Konfigurujemy serwery i infrastrukturę chmurową. Pomagamy firmom zaistnieć w internecie i zautomatyzować procesy.",
+    "cta": "Zamów projekt",
+    "ctaSecondary": "Nasze usługi"
+  },
+  "services": {
+    "title": "Usługi",
+    "description": "Pełen zakres usług IT — od pomysłu po wsparcie i rozwój.",
+    "groups": [
+      {
+        "title": "Tworzenie",
+        "badge": "Development",
+        "items": [
+          { "name": "Strony internetowe", "desc": "Landing page, strony firmowe, portale" },
+          { "name": "Sklepy internetowe", "desc": "Pełen cykl — od katalogu po płatności" },
+          { "name": "Aplikacje webowe", "desc": "SPA, PWA, rozwiązania dedykowane" },
+          { "name": "Systemy CRM / ERP", "desc": "Automatyzacja procesów biznesowych" }
+        ]
+      },
+      {
+        "title": "Usługi IT",
+        "badge": "Consulting",
+        "items": [
+          { "name": "Konsulting IT", "desc": "Dobór oprogramowania, architektura rozwiązań" },
+          { "name": "Bazy danych", "desc": "Projektowanie, migracja, optymalizacja" },
+          { "name": "Usługi chmurowe", "desc": "AWS, GCP, Azure — konfiguracja i migracja" }
+        ]
+      },
+      {
+        "title": "Infrastruktura",
+        "badge": "Infrastructure",
+        "items": [
+          { "name": "Hosting i serwery", "desc": "Hosting, administracja, monitoring" },
+          { "name": "Wsparcie stron", "desc": "Obsługa, aktualizacje, treści" }
+        ]
+      }
+    ]
+  },
+  "about": {
+    "title": "O firmie",
+    "p1": "Codecart — firma działająca w obszarze programowania, konsultingu IT i infrastruktury internetowej. Zajmujemy się tworzeniem stron internetowych, obsługą serwerów i wdrażaniem rozwiązań IT dla biznesu.",
+    "p2": "Naszym celem jest pomoc firmom w zaistnieniu w internecie, automatyzacji procesów i efektywniejszej pracy. Przejmujemy całą stronę techniczną, abyś mógł skupić się na tym, co najważniejsze.",
+    "founder": "Założyciel i dyrektor firmy",
+    "legal": "Dane firmy",
+    "fullName": "Pełna nazwa",
+    "address": "Adres"
+  },
+  "howWeWork": {
+    "title": "Jak pracujemy",
+    "description": "Prosty i przejrzysty proces od zgłoszenia do rezultatu.",
+    "steps": [
+      { "title": "Zgłoszenie", "desc": "Wysyłasz zgłoszenie przez formularz lub kontaktujesz się z nami bezpośrednio." },
+      { "title": "Rozmowa", "desc": "Omawiamy projekt, zadania i Twoje oczekiwania." },
+      { "title": "Wycena", "desc": "Przygotowujemy wycenę i terminy, uzgadniamy szczegóły." },
+      { "title": "Realizacja", "desc": "Realizujemy prace z prezentacjami pośrednimi i feedbackiem." },
+      { "title": "Uruchomienie i wsparcie", "desc": "Uruchamiamy projekt i zapewniamy wsparcie techniczne." }
+    ]
+  },
+  "contacts": {
+    "title": "Kontakt",
+    "description": "Skontaktuj się z nami w wygodny sposób lub zostaw zgłoszenie.",
+    "email": "Email",
+    "phone": "Telefon",
+    "address": "Adres",
+    "whatsapp": "WhatsApp",
+    "telegram": "Telegram",
+    "form": {
+      "title": "Zostaw zgłoszenie",
+      "name": "Imię",
+      "namePlaceholder": "Twoje imię",
+      "email": "Email",
+      "emailPlaceholder": "email@example.com",
+      "message": "Wiadomość",
+      "messagePlaceholder": "Opowiedz o swoim projekcie...",
+      "submit": "Wyślij"
+    },
+    "tbd": "Zostanie dodany",
+    "phoneNumber": "+48 452 119 082"
+  },
+  "footer": {
+    "rights": "Wszelkie prawa zastrzeżone."
+  }
+}
